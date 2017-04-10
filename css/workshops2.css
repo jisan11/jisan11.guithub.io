@@ -1,0 +1,132 @@
+.workshop {
+	width: 100%;
+	min-height: 524px;
+	padding: 0px 0;
+	
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: 1400px 580px;
+
+	font-weight: 300;	
+}
+
+.workshop p {
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+
+.workshop a, 
+.workshop a:hover {
+	color: #ffffff;
+	font-weight: 400;
+}
+
+.main-info {
+	color: #fff;
+}
+
+.main-info h2 {
+	margin: 0 0 60px 0;
+	font-size: 36px;
+	font-size: 3.6rem;
+	line-height: 36px;
+	line-height: 3.6rem;
+	color: #ffffff;
+	font-weight: 200;
+}
+
+.main-info p {
+	margin-bottom: 30px;
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 18;
+	line-height: 1.8rem;
+	font-weight: 400;
+}
+
+.colizq {
+	
+	color: #ffffff;
+
+}
+
+.colizq h3 {
+	margin-top: 120px;
+	display: inline-block;
+	padding: 3px 10px;
+	margin: 0 0 4px 0;
+	
+	color: #ffffff;
+	font-weight: 200;
+	text-transform: uppercase;
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#aa000000, endColorstr=#aa000000)";
+}
+
+
+.colizq h3 > strong {
+	margin-right: 10px;
+}
+.colizq h4> {
+	color: #ffffff;
+}
+.workshop .btn,
+.workshop .btn:hover {
+	padding: 10px 35px;
+	color: #ffffff;
+}
+
+.more-info-link {
+	margin: 0 15px;
+}
+
+#w1 {
+	background-image: url('../img/main4.jpeg');
+
+}
+
+	#w1 p {
+		color: #ffffff;
+	}
+
+	#w1 p > a {
+		color: #fff;
+	}
+
+	#w1 .btn {
+		margin-top: 25px;
+	}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+	.main-info h2 {
+		font-size: 56px;
+		font-size: 5.6rem;
+		line-height: 56px;
+		line-height: 5.6rem;
+	}
+
+	.workshop-left h3 {
+		float: right;
+		clear: right;
+		text-align: right;
+	}
+
+	.workshop-left {
+		text-align: left;
+	}
+
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}

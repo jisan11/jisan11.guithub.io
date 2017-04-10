@@ -1,0 +1,15 @@
+$usuarios = mysql_query("SELECT Nombre, Tipo_usuario 
+		  FROM usuarios
+		  WHERE Usuario  = '".$_POST['usuariolg']."' 
+		  AND Password  = '".$_POST['passlg']."'");
+
+nuevo
+
+
+$nombre=$_POST['usuariolg'];
+$pass = $_POST['passlg'];
+
+$usuarios  = mysql_query("SELECT Nombre, Tipo_usuario 
+		 FROM usuarios
+		  WHERE Usuario  = '$nombre ' 
+		  AND Password  = '$pass'");
