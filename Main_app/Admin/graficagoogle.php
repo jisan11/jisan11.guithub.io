@@ -19,18 +19,18 @@ $id = $_REQUEST ['id'];
  var data = google.visualization.arrayToDataTable([
  ['Browser', 'Visits'],
  <?php 
- $query = "SELECT DISTINCT provincia,COUNT(provincia) as total FROM votante WHERE id_candidato = '$id'  AND estado = 'Correcto' GROUP BY provincia";
+ $query = "SELECT DISTINCT departamento,COUNT(departamento) as total FROM votante WHERE id_candidato = '$id'  AND estado = 'Correcto' GROUP BY departamento";
 
  $exec = mysqli_query($con,$query);
  while($row = mysqli_fetch_array($exec)){
 
- echo "['".$row['provincia']."',".$row['total']."],";
+ echo "['".$row['departamento']."',".$row['total']."],";
  }
  ?>
  ]);
 
  var options = {
- title: 'Estadísticas por Provincia'
+ title: 'Estadísticas por Departamento'
  };
 
  var chart = new google.visualization.PieChart(document.getElementById('piechart'));

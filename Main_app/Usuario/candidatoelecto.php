@@ -6,7 +6,7 @@
 
  <link rel="stylesheet" href="../../css/main.css">
  <link rel="stylesheet" href="../../css/style.css">
- <link rel="stylesheet" href="../../css/workshops2.css">
+ <link rel="stylesheet" href="../../css/workshops3.css">
  
   <title>Agregar Candidato</title>
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
@@ -17,10 +17,11 @@
 			<?php 
 
 				include("conexion.php");
+				$conexion = Conexion();
 				$id = $_REQUEST ['id'];
 				$query = "SELECT * FROM candidatos WHERE id='$id' ";
-				$resultado = mysql_query($query);
-				$row = mysql_fetch_assoc($resultado);
+				$resultado = mysqli_query($conexion,$query);
+				$row = mysqli_fetch_assoc($resultado);
 			?>
 			
 <div id ="workshop-list">
@@ -28,7 +29,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-8 main-info">
-							<h3 class="highlighted">Candidato Electo Votaciones TSE 2017</h3>
+							<h3 class="highlighted">Candidato Electo Votaciones OEP 2023</h3>
 						</div>
 						<div class="error">
 							<span>Datos de Ingreso no Válidos, Intente de Nuevo</span>
@@ -38,11 +39,11 @@
 								$cedula = $_REQUEST['cedula'];
 								$edad = $_REQUEST['edad'];
 								$sexo = $_REQUEST['sexo'];
-								$provincia = $_REQUEST['provincia'];
+								$departamento = $_REQUEST['departamento'];
 
 							?>
 						<div class="main">
-							<form action="guardarvoto.php?id=<?php echo $row['id'];?>&cedula=<?php echo $cedula;?>&edad=<?php echo $edad;?>&sexo=<?php echo $sexo;?>&provincia=<?php echo $provincia;?>" method="POST" enctype="multipart/form-data">
+							<form action="guardarvoto.php?id=<?php echo $row['id'];?>&cedula=<?php echo $cedula;?>&edad=<?php echo $edad;?>&sexo=<?php echo $sexo;?>&departamento=<?php echo $departamento;?>" method="POST" enctype="multipart/form-data">
 								
 			 						<div class="group">
 										<label for="mail" class="label">Candidato</label>

@@ -15,17 +15,17 @@
 		<?php include '../../inc/header.php'; ?>
 		<!--detail cambia los estilos workshop w1 cambia todo-->
 		<link rel="stylesheet" href="../../css/style.css">
-		<link rel="stylesheet" href="../../css/workshops2.css">
+		<link rel="stylesheet" href="../../css/workshops3.css">
 		<!--detail cambia los estilos workshop w1 cambia todo-->
 		
 
  		<?php 
 
 				include("conexion.php");
-				
+				$conexion = Conexion();
 				$query = "SELECT * FROM candidatos WHERE id='$id' ";
-				$resultado = mysql_query($query);
-				$row = mysql_fetch_assoc($resultado);
+				$resultado = mysqli_query($conexion,$query);
+				$row = mysqli_fetch_assoc($resultado);
 		?>
 
 		<article id="w1-detail" class="detail">
@@ -52,7 +52,7 @@
 									  <a title="Gráfico por Candidato" href="./cvotosxcandidato.php?id=<?php echo $row ['id'];?>"><img src="../../img/grafico1-128.png" class="img-thumbnail"/></a>	
 									</div>
 									<div class="col-xs-4" >
-									  <a title="Gráfico por Provincia" href="./cvotosxprovincia.php?id=<?php echo $row ['id'];?>"><img src="../../img/grafico2-128.png" class="img-thumbnail"/></a>	
+									  <a title="Gráfico por Departamento" href="./cvotosxdepartamento.php?id=<?php echo $row ['id'];?>"><img src="../../img/grafico2-128.png" class="img-thumbnail"/></a>	
 									</div>
 									<div class="col-xs-4" >
 									  <a title="Gráfico por Edad" href="./cvotosxedad.php?id=<?php echo $row ['id'];?>"><img src="../../img/grafico3-128.png" class="img-thumbnail"/></a>		
@@ -64,7 +64,7 @@
 											<h3>Votos por Candidato</h3>	
 										</div>	
 										<div class="col-xs-4">
-											<h3>Votos por Provincia</h3>
+											<h3>Votos por Departamento</h3>
 										</div>	
 										<div class="col-xs-4">
 											<h3> Votos por Edad</h3>

@@ -42,7 +42,7 @@ $id = $_REQUEST ['id'];
  </script>
  		<?php include '../../inc/head_common.php';?>
  		<link rel="stylesheet" href="../../css/mainreportes.css">
-		<link rel="stylesheet" href="../../css/workshops2.css">
+		<link rel="stylesheet" href="../../css/workshops3.css">
 		<link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
@@ -51,10 +51,11 @@ $id = $_REQUEST ['id'];
  		<?php 
 
 				include("conexion.php");
+				$conexion = Conexion();
 				$id = $_REQUEST ['id'];
 				$query = "SELECT * FROM candidatos WHERE id='$id' ";
-				$resultado = mysql_query($query);
-				$row = mysql_fetch_assoc($resultado);
+				$resultado = mysqli_query($conexion,$query);
+				$row = mysqli_fetch_assoc($resultado);
 		?>
 
 			<article id="w1-detail" class="detail">
@@ -72,7 +73,7 @@ $id = $_REQUEST ['id'];
 						<div class="col">
 							<div class="col-xs-12">
 								<section id="tipos-repuestos">
-									<h3 class="highlighted">Reporte Votos por Edad TSE 2017</h3>
+									<h3 class="highlighted">Reporte Votos por Edad OEP 2023</h3>
 									<div class="historia col">
 									<div class="col-xs-6" >
 									<div class="main">

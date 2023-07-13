@@ -11,7 +11,7 @@
 		<?php include '../../inc/header.php'; ?>
 		<!--detail cambia los estilos workshop w1 cambia todo-->
 		
-		<link rel="stylesheet" href="../../css/workshops2.css">
+		<link rel="stylesheet" href="../../css/workshops3.css">
 		<link rel="stylesheet" href="../../css/style.css">
 		<article id="w1-detail" class="detail">
 				<header>
@@ -48,10 +48,11 @@
 										</thead>
 										<tbody>
 											<?php 
-												include("conexion.php");
+												include_once ("conexion.php");
+												$conexion = Conexion();
 												$query = "SELECT * FROM candidatos";
-												$resultado = mysql_query($query);
-												while ($row = mysql_fetch_assoc($resultado)) {
+												$resultado = mysqli_query($conexion, $query);
+												while ($row = mysqli_fetch_assoc($resultado)) {
 											 ?>	
 											 	<tr>
 											 		<td><?php echo $row['id']; ?></td>

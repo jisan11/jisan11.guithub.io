@@ -12,7 +12,7 @@
 		<?php include '../../inc/header2.php'; ?>
 		<!--detail cambia los estilos workshop w1 cambia todo-->
 		<link rel="stylesheet" href="../../css/style.css">
-		<link rel="stylesheet" href="../../css/workshops2.css">
+		<link rel="stylesheet" href="../../css/workshops3.css">
 		
 		<article id="w1-detail" class="detail">
 				<header>
@@ -36,7 +36,7 @@
 											$cedula = $_REQUEST['cedula'];
 											$edad = $_REQUEST['edad'];
 											$sexo = $_REQUEST['sexo'];
-											$provincia = $_REQUEST['provincia'];
+											$departamento = $_REQUEST['departamento'];
 
 										?>
 										<table class="table table-bordered">
@@ -45,13 +45,13 @@
 											    <th>CEDULA</th>
 											    <th>EDAD:</th>
 											    <th>SEXO:</th> 
-											    <th>PROVINCIA:</th>
+											    <th>DEPARTAMENTO:</th>
 											    <th>TERMINAR:</th>
 											  </tr>
 											  <td><?php echo $cedula;?></td>	
 											  <td><?php echo $edad;?></td>
 											  <td><?php echo $sexo;?></td>
-											  <td><?php echo $provincia;?></td>
+											  <td><?php echo $departamento;?></td>
 											  <td><a href="index.php" class="btn btn-primary" role="button">Finalizar</a></td>
 											 <tr>
 										</thead>
@@ -70,16 +70,17 @@
 
 											<?php 
 												include("conexion.php");
+												$conexion = Conexion();
 												$query = "SELECT * FROM candidatos";
-												$resultado = mysql_query($query);
-												while ($row = mysql_fetch_assoc($resultado)) {
+												$resultado = mysqli_query($conexion,$query);
+												while ($row = mysqli_fetch_assoc($resultado)) {
 											 ?>	
 											 	<tr>
 											 		<td><?php echo $row['id']; ?></td>
 											 		<td><?php echo $row['nombre_cand']; ?></td>
 											 		<td><?php echo $row['nombre_part']; ?></td>
 											 		<td><img height="70px" src="data:image/jpg;base64, <?php echo base64_encode($row['foto_cand']); ?>"/></td>
-											 		<th><a href="guardarvoto.php?id=<?php echo $row ['id'];?>&cedula=<?php echo $cedula;?>&edad=<?php echo $edad;?>&sexo=<?php echo $sexo;?>&provincia=<?php echo $provincia;?>" class="btn btn-primary" role="button">Votar</a></th>
+											 		<th><a href="guardarvoto.php?id=<?php echo $row ['id'];?>&cedula=<?php echo $cedula;?>&edad=<?php echo $edad;?>&sexo=<?php echo $sexo;?>&departamento=<?php echo $departamento;?>" class="btn btn-primary" role="button">Votar</a></th>
 											 	</tr>
 											 	
 											 <?php

@@ -19,6 +19,7 @@ jQuery(document).on('submit','#formlg',function(event){
 
 			}else if (respuesta.tipo == 'Usuario') {
 				location.href= 'Main_app/Usuario/';
+				Main_app/Usuario/login.php
 			}
 		}else{
 			$('.error').slideDown('slow');

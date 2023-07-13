@@ -1,66 +1,103 @@
 <!DOCTYPE html>
-	<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Detalles</title>
-		<?php include '../../inc/head_common.php';?>
+<html lang="es">
 
-	</head>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <!--<link rel="stylesheet" href="../../css/bootstrap2.min.css"> -->
+   <link rel="stylesheet" href="../../css/bootstrap2.min.css">
+   <link rel="stylesheet" href="../../css/loginfacial.css">
+   <link rel="stylesheet" href="../../css/style2.css">
+   <!--<link rel="stylesheet" href="../../css/main.css">
+   <link rel="stylesheet" href="../../css/style2.css">
+   <link rel="stylesheet" href="../../css/workshops3.css"> -->
+   <title>Identificación Facial</title>
+   <?php include '../../inc/head_common.php';?>
+   <br>
+   <br>
+   <br>
+   <br>
+</head>
 
-	<body>
-		<?php include '../../inc/header2.php'; ?>
-		<!--detail cambia los estilos workshop w1 cambia todo-->
-		<link rel="stylesheet" href="../../css/style.css">
-		<link rel="stylesheet" href="../../css/workshops2.css">
-		<link rel="stylesheet" href="../../css/main.css">
-		<div id ="workshop-list">
-			<article id="w1" class="workshop workshop-left">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-8 main-info">
-							<h3 class="highlighted">Registro  de  Votante  TSE  2017</h3>
-						</div>
-						<div class="error">
-							<span>Datos de Ingreso no Válidos, Intente de Nuevo</span>
-						</div>
-						<div class="main">
+<body class="bg-primary" onload="init()">
+   <?php include '../../inc/header2.php'; ?>
+   <br>
+   <div class="card container text-center bordered" style="width:400px">
+      <br>
+      <h3 class="font-weight">IDENTIFICACIÓN FACIAL</h3>
+      <form action="login.py" method="post" enctype="multipart/form-data">
+         <video onclick="snapshot(this);" width=300 height=300 id="video" controls autoplay></video>
+         <br>
+         <br>
+         <div class="form-group">
+            <strong class="text-white">USUARIO</strong>
+            <input type="email" placeholder="Email" name="email" class="form-control form-control-sm text-left">
+         </div>
 
-							<form action="votar.php" id="formlg">
-								<label class="label">Cédula</label>
-								<input id="ced" name="cedula" type="text" required class="form-control" onkeypress="return valida(event)" required />
-								<br>
-								<label class="label">Edad</label>
-								<input id="ed" name="edad" type="text" onkeypress="return valida(event)" required/>
-								<br>
-									<label class="label"> Sexo    :</label>
-									<select class="selectpicker" name="sexo" required/>
-										 <option>Masculino</option>
-										 <option>Femenino</option>
-									</select>
-								<br>	
-								<br>	
-								<label class="label">Provincia</label>
-									<select class="selectpicker" name="provincia" required/>
-										 <option>San_José</option>
-											<option>Alajuela</option>
-											<option>Cartago</option>
-											<option>Heredia</option>
-											<option>Guanacaste</option>
-											<option>Puntarenas</option>
-											<option>Limón</option>
-									</select>
-									<br>
-									<br>
-									<br>
-								<input type="submit" class="botonlg" value="Validar">
-							</form>
-						</div>		
-					</div>
-				</div>
-			</article>
-		</div>
-	<script src="../../js/valida.js"></script> 
-		<?php include '../../inc/footer.php';?>
-		<?php include '../../inc/footer_common.php';?>
-	</body>
-	</html>	
+         <input type="text" accept="image/png" hidden name="current_image" id="current_image">
+         <button onclick="login()" class="btn btn-primary btn-block" value="login">Iniciar </button>
+         <br>
+         <br>
+      </form>
+   </div>
+   <canvas id="myCanvas" width="400" height="350" hidden></canvas>
+
+   
+</body>
+<script>
+
+   navigator.getUserMedia = (navigator.getUserMedia ||
+      navigator.webkitGetUserMedia ||
+      navigator.mozGetUserMedia ||
+      navigator.msGetUserMedia);
+
+   var video;
+   var webcamStream;
+   if (navigator.getUserMedia) {
+      navigator.getUserMedia(
+
+         // constraints
+         {
+            video: true,
+            audio: false
+         },
+
+         // successCallback
+         function (localMediaStream) {
+            video = document.querySelector('video');
+            video.srcObject = localMediaStream;
+            webcamStream = localMediaStream;
+         },
+
+         // errorCallback
+         function (err) {
+            console.log("The following error occured: " + err);
+         }
+      );
+   } else {
+      console.log("getUserMedia not supported");
+   }
+
+
+
+   var canvas, ctx;
+
+   function init() {
+      // Get the canvas and obtain a context for
+      // drawing in it
+      mcanvas = document.getElementById("myCanvas");
+      ctx = mcanvas.getContext('2d');
+   }
+
+   function login() {
+      // Draws current image from the video element into the canvas
+      ctx.drawImage(video, 0, 0, mcanvas.width, mcanvas.height);
+      var dataURL = mcanvas.toDataURL('image/png');
+      document.getElementById("current_image").value = dataURL;
+
+   }
+
+</script>
+      
+</html>

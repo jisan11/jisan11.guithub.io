@@ -6,7 +6,7 @@
 
  <link rel="stylesheet" href="../../css/main.css">
  <link rel="stylesheet" href="../../css/style.css">
- <link rel="stylesheet" href="../../css/workshops2.css">
+ <link rel="stylesheet" href="../../css/workshops3.css">
  
   <title>Agregar Candidato</title>
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-8 main-info">
-							<h3 class="highlighted">Modulo Nuevo Candidato Votaciones TSE 2017</h3>
+							<h3 class="highlighted">Modulo Nuevo Candidato Votaciones OEP 2023</h3>
 						</div>
 						<div class="error">
 							<span>Datos de Ingreso no Válidos, Intente de Nuevo</span>
